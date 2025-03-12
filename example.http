@@ -2,7 +2,7 @@
 
 GET http://localhost:4000/telefonos
 
-
+GET http://localhost:4000/recibos?telefono=5492302640828&&periodo=202501
 
 
 

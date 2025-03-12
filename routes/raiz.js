@@ -9,5 +9,7 @@ export const createAppRouter = ({ dataModel }) => {
   });
 
   router.get("/telefonos", appController.getTelefonos);
+  router.get("/recibos-telefono", appController.getRecibosByTelAndPeriodo);
+  router.get("/recibos-correo", appController.getRecibosByTelAndPeriodo);
   return router;
 };
