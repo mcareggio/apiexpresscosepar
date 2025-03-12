@@ -1,0 +1,6 @@
+{"dbconf" : {
+  "host": "localhost",
+  "user": "root",
+  "password": "admin",
+  "database": "coop"
+}}
