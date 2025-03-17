@@ -4,7 +4,7 @@ export class AppController {
   }
 
   getRecibosByTelAndPeriodo = async (req, res) => {
-    const { telefono, periodo } = req.query;
+    const { telefono, periodo } = req.params;
     const recibos = await this.datamodel.getRecibosByTelAndPeriodo({
       telefono,
       periodo,
@@ -12,15 +12,32 @@ export class AppController {
     res.status(200).json(recibos);
   };
   getRecibosByCorreoAndPeriodo = async (req, res) => {
-    const { telefono, periodo } = req.query;
+    const { correo, periodo } = req.params;
     const recibos = await this.datamodel.getRecibosByCorreoAndPeriodo({
-      telefono,
+      correo,
       periodo,
     });
     res.status(200).json(recibos);
   };
+  getRecibosByIdUser = async (req, res) => {
+    const { id, periodo } = req.params;
+    const recibos = await this.datamodel.getRecibosByIdUser({
+      id: id,
+      periodo: periodo,
+    });
+    res.json(recibos);
+  };
   getTelefonos = async (req, res) => {
     const telefonos = await this.datamodel.getAllTelefonos();
     res.json(telefonos);
+  };
+  getCorreos = async (req, res) => {
+    const telefonos = await this.datamodel.getAllCorreos();
+    res.json(telefonos);
+  };
+  getPeriodos = async (req, res) => {
+    const { cant } = req.params;
+    const periodos = await this.datamodel.getPeriodos({ cant });
+    res.json(periodos);
   };
 }

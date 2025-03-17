@@ -1,11 +1,16 @@
 
 
+GET http://localhost:4000/periodos/20
+
 GET http://localhost:4000/telefonos
 
-GET http://localhost:4000/recibos?telefono=5492302640828&&periodo=202501
+GET http://localhost:4000/correos
 
+GET http://localhost:4000/recibos-telefono/5492302640828/202412
 
+GET http://localhost:4000/recibos-correo/marina.riestra39@gmail.com/202501
 
+GET http://localhost:4000/recibos/6/202501
 
 
 

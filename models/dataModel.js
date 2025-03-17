@@ -15,9 +15,21 @@ export class DataModel {
 
     return results;
   }
+  static async getAllCorreos() {
+    let [results, fields] = [];
+    try {
+      const connection = await mysql.createConnection(dbconf.dbconf);
+      [results, fields] = await connection.query(
+        "SELECT * FROM `copemae` where correo!=''"
+      );
+    } catch (err) {
+      console.log(err);
+    }
+
+    return results;
+  }
   static async getRecibosByTelAndPeriodo({ telefono, periodo }) {
     let [results, fields] = [];
-    console.log(telefono + " " + periodo);
     try {
       const connection = await mysql.createConnection(dbconf.dbconf);
       [results, fields] = await connection.query(
@@ -32,12 +44,40 @@ export class DataModel {
   }
   static async getRecibosByCorreoAndPeriodo({ correo, periodo }) {
     let [results, fields] = [];
-    console.log(telefono + " " + periodo);
     try {
       const connection = await mysql.createConnection(dbconf.dbconf);
       [results, fields] = await connection.query(
         "SELECT copemae.nombre,copemae.direccion,copemae.ruta,copemae.folio,copemae.subfolio,copemae.correo,deuda.periodo,deuda.totalfinal as total,deuda.FECPAGO from copemae left join deuda on copemae.ruta=deuda.ruta and copemae.folio=deuda.folio and copemae.subfolio=deuda.SUBFOLIO where correo=? and periodo=? ORDER BY correo,Periodo desc",
         [correo, periodo]
+      );
+    } catch (err) {
+      console.log(err);
+    }
+
+    return results;
+  }
+  static async getRecibosByIdUser({ id, periodo }) {
+    let [results, fields] = [];
+    try {
+      const connection = await mysql.createConnection(dbconf.dbconf);
+      [results, fields] = await connection.query(
+        "SELECT copemae.nombre,copemae.direccion,copemae.ruta,copemae.folio,copemae.subfolio,copemae.correo,deuda.periodo,deuda.totalfinal as total,deuda.FECPAGO from copemae left join deuda on copemae.ruta=deuda.ruta and copemae.folio=deuda.folio and copemae.subfolio=deuda.SUBFOLIO where copemae.id=? and periodo=?",
+        [id, periodo]
+      );
+    } catch (err) {
+      console.log(err);
+    }
+
+    return results;
+  }
+
+  static async getPeriodos({ cant }) {
+    let [results, fields] = [];
+    try {
+      const connection = await mysql.createConnection(dbconf.dbconf);
+      [results, fields] = await connection.query(
+        "select Periodo from deuda group by periodo ORDER BY PERIODO desc limit ?",
+        [cant]converit a entero
       );
     } catch (err) {
       console.log(err);
