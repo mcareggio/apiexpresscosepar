@@ -1,6 +1,6 @@
 
 
-GET http://localhost:4000/periodos/20
+GET http://localhost:4000/periodos/
 
 GET http://localhost:4000/telefonos
 

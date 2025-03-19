@@ -7,7 +7,7 @@ export const createAppRouter = ({ dataModel }) => {
   router.get("/", (req, res) => {
     res.status(200).send("Its Works");
   });
-  router.get("/periodos/:cant", appController.getPeriodos);
+  router.get("/periodos/:cant?", appController.getPeriodos);
   router.get("/correos", appController.getCorreos);
   router.get("/telefonos", appController.getTelefonos);
   router.get(

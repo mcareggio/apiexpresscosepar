@@ -1,11 +1,6 @@
 import cors from "cors";
 
-const ACCEPTED_ORIGINS = [
-  "http://localhost:4000",
-  "http://localhost:1234",
-  "https://movies.com",
-  "https://midu.dev",
-];
+const ACCEPTED_ORIGINS = ["http://localhost:4000", "http://localhost:5173"];
 
 export const corsMiddleware = ({ acceptedOrigins = ACCEPTED_ORIGINS } = {}) =>
   cors({

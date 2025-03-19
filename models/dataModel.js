@@ -71,13 +71,13 @@ export class DataModel {
     return results;
   }
 
-  static async getPeriodos({ cant }) {
+  static async getPeriodos({ cant = "10" }) {
     let [results, fields] = [];
     try {
       const connection = await mysql.createConnection(dbconf.dbconf);
       [results, fields] = await connection.query(
         "select Periodo from deuda group by periodo ORDER BY PERIODO desc limit ?",
-        [cant]converit a entero
+        [parseInt(cant)]
       );
     } catch (err) {
       console.log(err);
