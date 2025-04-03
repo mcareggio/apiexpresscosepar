@@ -1,0 +1,60 @@
+.listado_cont{
+    margin: 0 auto;   
+    width: 60%;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+a:visited{
+    text-decoration: none;
+    color: black;
+}
+.cont-recibo{
+    margin: 0 auto;
+    width: 60%;
+    border: 1px solid black;
+    padding-bottom: 5%;
+    margin-bottom: 2px;
+}
+.cont-recibo h1{
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 5%;
+}
+.listado{
+    width: 98%;
+    margin: 0 auto;
+    border: 1px solid black;
+}
+.lista-rf{
+    font-size: 22px;
+    list-style: none;
+}
+.tabla{
+    width: 100%;
+}
+#datos{
+    border: 1px solid #ccc;
+}
+td{
+    font-size: 16px;
+}
+.img-barras{
+    width: 200px;
+}
+.fecha{
+    margin-left: 10px;
+    margin-bottom: 10PX;
+    padding-left: 5px;
+    width: 135px;
+    font-size: 16px;    
+    border-radius: 10px 10px 10px 10px;
+    background-color: #c1c4be;
+    background-color: rgb(210, 210, 210);
+}
+#select_periodos{
+    width: 120px;
+    display: inline;
+    
+}

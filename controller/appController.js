@@ -40,4 +40,15 @@ export class AppController {
     const periodos = await this.datamodel.getPeriodos({ cant });
     res.json(periodos);
   };
+  getUsuariosEnvio = async (req, res) => {
+    const usuarios_envio = await this.datamodel.getUsuariosEnvio({});
+    res.json(usuarios_envio);
+  };
+  getUsuariosEnvioBusqueda = async (req, res) => {
+    const { search } = req.params;
+    const usuarios_envio = await this.datamodel.getUsuariosEnvioBusqueda({
+      search,
+    });
+    res.json(usuarios_envio);
+  };
 }

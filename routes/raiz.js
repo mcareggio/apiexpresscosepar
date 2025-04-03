@@ -14,10 +14,16 @@ export const createAppRouter = ({ dataModel }) => {
     "/recibos-telefono/:telefono/:periodo",
     appController.getRecibosByTelAndPeriodo
   );
+
   router.get(
     "/recibos-correo/:correo/:periodo",
     appController.getRecibosByCorreoAndPeriodo
   );
   router.get("/recibos/:id/:periodo", appController.getRecibosByIdUser);
+  router.get("/usuarios-envio", appController.getUsuariosEnvio);
+  router.get(
+    "/usuarios-envio/:search?",
+    appController.getUsuariosEnvioBusqueda
+  );
   return router;
 };

@@ -1,0 +1,14 @@
+.cont-recibo{
+    width: 100%;
+}
+td{
+    font-size: 10px;
+    
+}
+.fecha{
+font-size: 10px;
+width: 200px;
+}
+.dowmload{
+    display: none;
+}

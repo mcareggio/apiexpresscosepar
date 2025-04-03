@@ -85,6 +85,32 @@ export class DataModel {
 
     return results;
   }
+  static async getUsuariosEnvio() {
+    let [results, fields] = [];
+    try {
+      const connection = await mysql.createConnection(dbconf.dbconf);
+      [results, fields] = await connection.query(
+        "select * from usuarios_envio order by nombre"
+      );
+    } catch (err) {
+      console.log(err);
+    }
+    return results;
+  }
+  static async getUsuariosEnvioBusqueda({ search }) {
+    let [results, fields] = [];
+    try {
+      const connection = await mysql.createConnection(dbconf.dbconf);
+      [results, fields] = await connection.query(
+        "select * from usuarios_envio where nombre like ? order by nombre",
+        ["%" + search + "%"]
+      );
+    } catch (err) {
+      console.log(err);
+    }
+
+    return results;
+  }
 }
 /*
 
