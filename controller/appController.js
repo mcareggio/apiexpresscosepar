@@ -41,7 +41,7 @@ export class AppController {
     res.json(periodos);
   };
   getUsuariosEnvio = async (req, res) => {
-    const usuarios_envio = await this.datamodel.getUsuariosEnvio({});
+    const usuarios_envio = await this.datamodel.getUsuariosEnvio();
     res.json(usuarios_envio);
   };
   getUsuariosEnvioBusqueda = async (req, res) => {
